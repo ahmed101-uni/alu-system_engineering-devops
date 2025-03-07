@@ -1,18 +1,13 @@
 #!/usr/bin/env bash
-# This script installs and configures Nginx to serve "Holberton School"
+# Sets up nginx
 
-# Update package list and install Nginx
-sudo apt-get update -y
+sudo apt-get update
 sudo apt-get install -y nginx
 
-# Start Nginx
 sudo service nginx start
 
-# Allow HTTP traffic through the firewall
+echo "Holberton School" | sudo tee /var/www/html/index.html
+
 sudo ufw allow 'Nginx HTTP'
 
-# Create a custom index.html with the required text
-echo "Holberton School" | sudo tee /var/www/html/index.html > /dev/null
-
-# Restart Nginx without using systemctl
 sudo service nginx restart
