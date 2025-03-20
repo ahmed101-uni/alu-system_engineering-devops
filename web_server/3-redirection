@@ -7,24 +7,24 @@ sudo ufw allow 'Nginx HTTP'
 mkdir -p /var/www/html/
 sudo chmod -R 755 /var/www
 echo 'Hello World!' >/var/www/html/index.html
-
 SERVER_CONFIG="server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 	root /var/www/html;
 	index index.html index.htm index.nginx-debian.html;
 	server_name _;
-
 	location / {
 		try_files \$uri \$uri/ =404;
 	}
-
-	location /redirect_me {
-		return 301 https://www.youtube.com/watch?v=aBxKr5AbIiY;
+	if (\$request_filename ~ redirect_me){
+		rewrite ^ https://www.youtube.com/watch?v=dQw4w9WgXcQ permanent;
 	}
 }"
 
 bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 
-# Test Nginx configuration and restart service
-nginx -t && systemctl restart nginx
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+  service nginx start
+else
+  service nginx restart
+fi
