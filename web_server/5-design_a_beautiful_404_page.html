@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="hello.css">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <title>Oops! Page Not Found</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .container img {
+            width: 150px;
+            height: auto;
+            margin-bottom: 20px;
+            animation: spin 2s infinite linear;
+        }
+
+        .error-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #fffd82;
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .home-link {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #ff7e5f;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .home-link:hover {
+            background-color: #feb47b;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <img src="" alt="404">
+        <h1 class="error-title">Ceci n'est pas une page</h1>
+        <p class="error-message">Oops! Looks like you're lost. The page you're looking for doesn't exist.</p>
+        <a href="/" class="home-link">Back to Home</a>
+    </div>
+</body>
+</html>
